@@ -1,0 +1,1011 @@
+//1. Write a program to create student class with data members rollno, marks1, mark2, mark3.
+//Accept data (acceptInfo()) and display using display member function.
+//Also display total, percentage and grade
+
+#include<iostream>
+
+using namespace std;
+
+class student
+{
+	int rollno,mark1,mark2,mark3,total;
+	float per,grade;
+	
+	public:
+		void acceptInfo()
+		{
+			cout<<"Enter rollno";
+			cin>>rollno;
+			
+			cout<<"Enter marks1=";
+			cin>>mark1;
+			
+			cout<<"Enter marks2=";
+			cin>>mark2;
+			
+			cout<<"Enter marks3=";
+			cin>>mark3;
+		}
+		
+		void display()
+		{
+			cout<<"\nRoll no="<<rollno;
+			cout<<"\nMarks1="<<mark1;
+			cout<<"\nMarks2="<<mark2;
+			cout<<"\nMarks3="<<mark3;
+			
+			total=mark1+mark2+mark3;
+			cout<<"\nTotal="<<total;
+			
+			per=total/3;
+			cout<<"\nPercentage="<<per;
+			
+			if(per>90)
+				cout<<"\nGrade= A+ grade";
+			else if(per<90 && per>80)
+					cout<<"\nGrade= A grade";
+			else if(per<80 && per>70)
+					cout<<"\nGrade= B+ grade";
+			else 
+					cout<<"\nGrade= B grade";			
+		}
+};
+
+int main()
+{
+	student s;
+	s.acceptInfo();
+	s.display();
+	
+	return 0;
+}
+
+o/p-
+Enter rollno1
+Enter marks1=67
+Enter marks2=78
+Enter marks3=97
+
+Roll no=1
+Marks1=67
+Marks2=78
+Marks3=97
+Total=242
+Percentage=80
+Grade= B grade
+
+//2. Create a class Person with data members as name, age, city. Write getters and setters for all the data 
+//members. Also add the display function. Create Default and Parameterized constructors. Create the object 
+//of this class in main method and invoke all the methods in that class. 
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Person
+{
+	char name[20],city[20];
+	int age;
+	
+	public:
+		//default constructor
+		Person()
+		{
+			strcpy(name,"Aisha");
+			strcpy(city,"Mumbai");
+			age=20;
+		}
+		
+		//parameterized constructor
+		Person(char n[],char c[],int a)
+		{
+			strcpy(name,n);
+			strcpy(city,c);
+			age=a;
+		}
+		//setter function
+		void setData(char n[],char c[],int a)
+		{
+			strcpy(name,n);
+			strcpy(city,c);
+			age=a;
+		}
+		
+		//getter function
+		void showData()
+		{
+			cout<<"\n\nName="<<name;
+			cout<<"\nCity="<<city;
+			cout<<"\nAge="<<age;
+		}
+};
+
+int main()
+{
+	cout<<"\n\nUsing default constructor=";
+	Person p; //default
+	p.showData();
+	
+	cout<<"\n\nUsing Parameterized constructor=";
+	Person p1=Person("Piyush","Nashik",23); //paramterized
+	p1.showData();
+	
+	cout<<"\n\nUsing setter function=";
+	p.setData("Anshuja","pune",19); //setter
+	p.showData();
+	
+	return 0;
+	
+}
+
+o/p-
+Using default constructor=
+Name=Aisha
+City=Mumbai
+Age=20
+
+Using Parameterized constructor=
+Name=Piyush
+City=Nashik
+Age=23
+
+Using setter function=
+Name=Anshuja
+City=pune
+Age=19
+
+//3. Create a class Date with data members as dd, mm, yy. Write getters and setters for all the data 
+//members. Also add the display function. Create Default and Parameterized constructors. Create the 
+//object of this class in main method and invoke all the methods in that class.
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Date
+{
+	int dd;
+	int mm;
+	int yy;
+	
+	public:
+		//default constructor
+		Date()
+		{
+			dd=20;
+			mm=12;
+			yy=2000;
+		}
+		//parameterized constructor
+		Date(int d,int m,int y)
+		{
+			dd=d;
+			mm=m;
+			yy=y;
+		}
+		//setter function
+		void setData(int d,int m,int y)
+		{
+			dd=d;
+			mm=m;
+			yy=y;
+
+		}
+		
+		//getter function
+		void showData()
+		{
+			cout<<"\nDate="<<dd;
+			cout<<"\nMonth="<<mm;
+			cout<<"\nYear="<<yy;
+		}
+};
+
+int main()
+{
+	cout<<"\n\nUsing default constructor=";
+	Date d; //default
+	d.showData();
+	
+	cout<<"\n\nUsing Parameterized constructor=";
+	Date d1=Date(13,5,2003); //paramterized
+	d1.showData();
+	
+	cout<<"\n\nUsing setter function=";
+	d.setData(20,4,2019); //setter
+	d.showData();
+	
+	return 0;
+	
+}
+
++o/p-
+Using default constructor=
+20-12-2000
+
+Using Parameterized constructor=
+13-5-2003
+
+Using setter function=
+20-4-2019
+
+//4. Create a class Book with data members as bname, id, author, price. Write getters and setters for all the 
+//data members. Also add the display function. Create Default and Parameterized constructors. Create 
+//the object of this class in main method and invoke all the methods in that class.
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Book
+{
+	char bname[30],author[30];
+	int id;
+	float price;
+	
+	
+	public:
+		//default constructor
+		Book()
+		{
+			strcpy(bname,"c programming");
+			strcpy(author,"Yashwant");
+			id=1;
+			price=300.0;
+		}
+		//parameterized constructor
+		Book(char b[],char a[],int i,float p)
+		{
+			strcpy(bname,b);
+			strcpy(author,a);
+			id=i;
+			price=p;
+		}
+		//setter function
+		void setData(char b[],char a[],int i,float p)
+		{
+			strcpy(bname,b);
+			strcpy(author,a);
+			id=i;
+			price=p;
+		}
+		
+		//getter function
+		void showData()
+		{
+			cout<<"\nBname="<<bname;
+			cout<<"\nAuthor="<<author;
+			cout<<"\nid="<<id;
+			cout<<"\nprice="<<price;
+		}
+};
+
+int main()
+{
+	cout<<"\n\nUsing default constructor=";
+	Book b; //default
+	b.showData();
+	
+	cout<<"\n\nUsing Parameterized constructor=";
+	Book b1=Book("c++","balaguruswamy",2,500.0); //paramterized
+	b1.showData();
+	
+	cout<<"\n\nUsing setter function=";
+	b.setData("java","stroustrop",3,700.000); //setter
+	b.showData();
+	
+	return 0;
+	
+}
+o/p-
+
+Using default constructor=
+Bname=c programming
+Author=Yashwant
+id=1
+price=300
+
+Using Parameterized constructor=
+Bname=c++
+Author=balaguruswamy
+id=2
+price=500
+
+Using setter function=
+Bname=java
+Author=stroustrop
+id=3
+price=700
+
+//5.Create a class Point with data members as x,y. Create Default and Parameterized constructors. Write 
+//getters and setters for all the data members. Also add the display function. Create the object of this 
+//class in main method and invoke all the methods in that class. 
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Point
+{
+	int x,y;
+	public:
+		//default constructor
+		Point()
+		{
+			x=0;
+			y=0;
+		}
+		//parameterized constructor
+		Point(int x,int y)
+		{
+			this->x=x;
+			this->y=y;
+		}
+		//setter function
+		void setData(int x,int y)
+		{
+			this->x=x;
+			this->y=y;
+		}
+		
+		//getter function
+		void showData()
+		{
+			cout<<"\nx="<<x;
+			cout<<"\ny="<<y;
+		}
+};
+
+int main()
+{
+	cout<<"\n\nUsing default constructor=";
+	Point p; //default
+	p.showData();
+	
+	cout<<"\n\nUsing Parameterized constructor=";
+	Point p1=Point(10,20); //paramterized
+	p1.showData();
+	
+	cout<<"\n\nUsing setter function=";
+	p.setData(50,90); //setter
+	p.showData();
+	
+	return 0;
+	
+}
+o/p-
+Using default constructor=
+x=0
+y=0
+
+Using Parameterized constructor=
+x=10
+y=20
+
+Using setter function=
+x=50
+y=90
+
+//6. Create a class ComplexNumber with data members real, imaginary. Create Default and Parameterized 
+//constructors. Write getters and setters for all the data members. Also add the display function. Create 
+//the object of this class in main method and invoke all the methods in that class.
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Complex
+{
+	int real,img;
+	public:
+		//default constructor
+		Complex()
+		{
+			real=0;
+			img=0;
+		}
+		//parameterized constructor
+		Complex(int r,int i)
+		{
+			real=r;
+			img=i;
+		}
+		//setter function
+		void setData(int r,int i)
+		{
+			real=r;
+			img=i;
+		}
+		
+		//getter function
+		void showData()
+		{
+			cout<<"\n"<<real<<"+"<<img<<"i";
+		}
+};
+
+int main()
+{
+	cout<<"\n\nUsing default constructor=";
+	Complex c; //default
+	c.showData();
+	
+	cout<<"\n\nUsing Parameterized constructor=";
+	Complex c1=Complex(10,20); //paramterized
+	c1.showData();
+	
+	cout<<"\n\nUsing setter function=";
+	c.setData(50,90); //setter
+	c.showData();
+	
+	return 0;
+	
+}
+o/p-
+Using default constructor=
+0+0i
+
+Using Parameterized constructor=
+10+20i
+
+Using setter function=
+50+90i
+
+//7.Create Date class with members day, month, year. Write no argument and parameterized constructor. 
+//Create two object s and initialize them using no argument and parameterized constructor respectively. 
+//Print date using display function
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Date
+{
+	int dd;
+	int mm;
+	int yy;
+	
+	public:
+		//default constructor
+		Date()
+		{
+			dd=20;
+			mm=12;
+			yy=2000;
+		}
+		//parameterized constructor
+		Date(int d,int m,int y)
+		{
+			dd=d;
+			mm=m;
+			yy=y;
+		}
+	
+		
+		//getter function
+		void showData()
+		{
+			cout<<"\n"<<dd<<"-"<<mm<<"-"<<yy;
+			
+		}
+};
+
+int main()
+{
+	cout<<"\n\nUsing default constructor=";
+	Date d; //default
+	d.showData();
+	
+	cout<<"\n\nUsing Parameterized constructor=";
+	Date d1=Date(13,5,2003); //paramterized
+	d1.showData();
+	
+	
+	return 0;
+	
+}
+o/p-
+Using default constructor=
+20-12-2000
+
+Using Parameterized constructor=
+13-5-2003
+
+// 8.Create Employee class with members id(int),name(string),dob(Date).Use above created Date class. 
+//Write default and parameterized constructor in Employee Class.Write accept () function to accept 
+//information and display () to display emp information
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Date 
+{
+	public:
+		int dd,mm,yy;
+		//default constructor
+		Date()
+		{
+			dd=20;
+			mm=12;
+			yy=2000;
+		}
+		//parameterized constructor
+		Date(int d,int m,int y)
+		{
+			dd=d;
+			mm=m;
+			yy=y;
+		}
+};
+
+class Employee 
+{
+	int eid;
+	char ename[30];	
+	Date* dob;
+	
+	public:
+		Employee(int i,char n[],Date* d)
+		{
+			eid=i;
+			strcpy(ename,n);
+			dob=d;		
+		}
+		
+		void display()
+		{
+			cout<<"Id="<<eid<<"\n"<<"Name="<<ename<<"\n"<<"Date="<<dob->dd<<"-"<<dob->mm<<"-"<<dob->yy<<"\n";
+		}
+	
+	
+};
+int main()
+{	
+	Date d=Date(12,12,1999);
+	Employee e=Employee(101,"Pratik",&d);
+	e.display();
+	
+	return 0;
+	
+}
+
+/*9. Consider that payroll software needs to be developed for computerization of operations of an ABC 
+organization. The organization has employees.
+9.1. Construct a class Employee with following members using private access specifies:
+Employee Id integer
+Employee Name string
+Basic Salary double
+HRA double
+Medical double=1000
+PF double
+PT double
+Net Salary double
+Gross Salary double
+Please use following expressions for calculations: //Note: Don’t accept HRA,PF PT from user
+* HRA = 50% of Basic Salary
+* PF = 12% of Basic Salary
+* PT = Rs. 200
+9.2. Write methods to display the details of an employee and calculate the gross and net salary.
+* Goss Salary = Basic Salary + HRA + Medical
+* Net Salary = Gross Salary – (PT + PF)
+9.3 Create Object of employee class and assign values and display Details.
+*/
+
+
+#include<iostream>
+using namespace std;
+
+class Employee
+{
+	private:
+		int id;
+		char name[20];
+		double basic_salary;
+		double hra;
+		double medical;
+		double pf;
+		double pt;
+		double net_salary;
+		double gross_salary;
+		
+		public:
+			Employee(double bs)   //parameterized
+			{
+				hra=0.5*bs;
+				pf=0.12*bs;
+				medical=1000;
+				pt=200;
+				
+			}
+			
+			void calculate()
+			{
+				gross_salary = basic_salary + hra + medical;
+				net_salary = gross_salary -( pt + pf) ;
+			}
+			
+20			void display()
+			{
+				cout<<"\n Gross salary="<<gross_salary;
+				cout<<"\n Net Salary="<<net_salary;
+			}	
+};
+
+int main()
+{
+	Employee e=Employee(10000.0);
+	e.calculate();
+	e.display();
+	
+	return 0;
+}
+o/p-
+ Gross salary=6000
+ Net Salary=4600
+
+/*10. Solve this.
+Fresh business scenario to apply inheritance , polymorphism to emp based organization scenario.
+Create Emp based organization structure --- Emp , Mgr , Worker
+10.1 Emp state--- id(int), name, deptId , basicSalary(double)
+Accept all of above in constructor arguments.
+Methods ---
+10.2. Compute net salary ---ret 0
+(eg : public double computeNetSalary(){return 0;})
+10.3 Mgr state ---id,name,basic,deptId , perfBonus
+Add suitable constructor
+Methods ----
+1. Compute net salary (formula: basic+perfBonus) -- override computeNetSalary
+10.4 Worker state --id,name,basic,deptId,hoursWorked,hourlyRate
+Methods:
+1. Compute net salary (formula: = basic+ (hoursWorked*hourlyRate) --override computeNetSalary
+2. Get hrlyRate of the worker -- add a new method to return hourly rate of a worker.(getter)
+Create suitable array to store organization details.
+Provide following options
+1. Hire Manager
+I/P : all manager details
+2. Hire Worker 
+I/P : all worker details
+3. Display information of all employees net salary (by invoking computeNetSal), 
+4. Exit
+*/
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class employee
+{
+	public:
+	int id;
+	char name[20];
+	int deptid;
+	double basic_salary;
+	
+	
+		/*employee(int i,char n[],int did,double bs)
+		{
+			id=i;
+			strcpy(name,n);
+			deptid=did;
+			basic_salary=bs;
+		}*/
+		
+		double computeNetSalary()
+		{
+			return 0;
+		}
+};
+
+class mgr:public employee
+{
+	public:
+	double perfBonus;
+	double net_salary;
+	
+	
+		mgr(int i,char n[],double basic,int d,double pb)
+		{
+			id=i;
+			strcpy(name,n);
+			basic_salary=basic;
+			deptid=d;
+			perfBonus=pb;
+		}
+		double computeNetSalary()
+		{
+			net_salary=basic_salary+perfBonus;
+			cout<<"\nNet Salary="<<net_salary;
+		}
+};
+
+class worker:public employee
+{
+	public:
+	double hoursWorked;
+	double hourlyRate;
+	double net_salary;
+	
+	
+		worker(int i,char n[],double basic,int d,double hw,double hr)
+		{
+			id=i;
+			strcpy(name,n);
+			deptid=d;
+			basic_salary=basic;
+			hoursWorked=hw;
+			hourlyRate=hr;
+		}
+		double 	computeNetSalary()
+		{
+			net_salary=basic_salary+(hoursWorked*hourlyRate);
+			cout<<"\nNet Salary="<<net_salary;
+			
+		}
+};
+
+int main()
+{
+	int i,d;
+	double bs,pb,hw,hr;
+	char n[30];
+	int ch;
+	
+	abc:
+	  	cout<<"Enter choice from following options:\n 1.Hire manager \n 2.Hire Worker\n3. Display information of all employees net salary (by invoking computeNetSal)\n 4. Exit\nEnter your choice: ";
+		cin>>ch;
+	
+	while(ch!=5)
+	{
+		if(ch==1)
+		{
+		
+					cout<<"\nEnter id=";
+					cin>>i;
+					
+					cout<<"\nEnter name=";
+					cin>>n;
+					
+				 	cout<<"\nEnter basic salary=";
+					cin>>bs;
+					
+					cout<<"\nEnter department id:";
+					cin>>d;
+				
+					cout<<"\nEnter performance bonus=";
+					cin>>pb;
+					
+					goto abc;
+	}
+	if(ch==2)
+	{
+
+			cout<<"\nEnter id=";
+					cin>>i;
+					
+					cout<<"\nEnter name=";
+					cin>>n;
+					
+				 	cout<<"\nEnter basic salary=";
+					cin>>bs;
+					
+					cout<<"\nEnter department id:";
+					cin>>d;
+					
+					cout<<"\n Enter HoursWorked:";
+					cin>>hw;
+					
+					cout<<"\nEnter hourlyRate";
+					cin>>hr;
+					
+					goto abc;
+	}
+	if(ch==3)
+	{
+	
+			mgr m=mgr(i,n,bs,d,pb);
+			m.computeNetSalary();
+			
+			worker w(i,n,bs,d,hw,hr);
+			w.computeNetSalary();
+			goto abc;
+	}
+    if(ch==4)
+	{
+	  cout<<"Exit....";	
+	  break;
+}
+						
+	}
+	
+	return 0;
+}
+o/p-
+Enter choice from following options:
+ 1.Hire manager
+ 2.Hire Worker
+3. Display information of all employees net salary (by invoking computeNetSal)
+ 4. Exit
+Enter your choice: 1
+
+Enter id=10
+
+Enter name=piyusha
+
+Enter basic salary=20000
+
+Enter department id:1
+
+Enter performance bonus=1200
+Enter choice from following options:
+ 1.Hire manager
+ 2.Hire Worker
+3. Display information of all employees net salary (by invoking computeNetSal)
+ 4. Exit
+Enter your choice: 2
+
+Enter id=20
+
+Enter name=ankita
+
+Enter basic salary=10000
+
+Enter department id:23
+
+ Enter HoursWorked:12
+
+Enter hourlyRate10
+Enter choice from following options:
+ 1.Hire manager
+ 2.Hire Worker
+3. Display information of all employees net salary (by invoking computeNetSal)
+ 4. Exit
+Enter your choice: 3
+
+Net Salary=11200
+Net Salary=10120Enter choice from following options:
+ 1.Hire manager
+ 2.Hire Worker
+3. Display information of all employees net salary (by invoking computeNetSal)
+ 4. Exit
+Enter your choice: 4
+Exit....
+-------------------------------
+/*11. Create cpp application for bank account handling.
+11.1. Create a class BankAccount -- acct no(int),customer name(string),balance(double)
+Add constr. (2 constrs : first to accept all details )
+11.2 Add Business logic methods
+Methods
+public void withdraw(double amt) 
+public void deposit(double amt)
+11.3: Create object of account class and test withdraw and deposit methods  */
+
+#include<iostream>
+using namespace std;
+
+class BankAccount
+{
+	private: 
+		int acc_no;
+		char cust_name[20];
+		double balance;
+		
+	public:
+		BankAccount()
+		{
+			cout<<"\nEnter account no=";
+			cin>>acc_no;
+			
+			cout<<"\nEnter name=";
+			cin>>cust_name;
+			
+			cout<<"\nEnter balance=";
+			cin>>balance;
+		}
+		
+		void withdraw(double amt)
+		{
+			balance=balance-amt;
+			cout<<"\n After withdrawing amount="<<balance;
+			
+		}
+		void deposit(double amt)
+		{
+			balance=balance+amt;
+			cout<<"\n After Depositing amount="<<balance;
+		}
+};
+
+int main()
+{
+	BankAccount b;
+	b.withdraw(1000);
+	b.deposit(500);
++	return 0;
+}
+
+o/p-
+Enter account no=123456
+
+Enter name=Ishali
+
+Enter balance=20000
+
+ After withdrawing amount=19000
+ After Depositing amount=19500
+
+/*12. Create an abstract class Shape with pure virtual method area;
+Create Rectangle, Circle, Square class. Inherit them from Shape class. Override area method.
+Test these all classes by creating object of respective class. */
+
+#include<iostream>
+using namespace std;
+
+class shape
+{
+	public:
+		virtual void area()=0;
+};
+
+class rectangle : public shape
+{
+	int l;
+	int b;
+	
+	public:
+		rectangle(int l,int b)
+		{
+			this->l=l;
+			this->b=b;
+		}
+	void area()
+	{
+		cout<<"\nArea of rectangle="<<(l*b);
+	}
+};
+
+class circle:public shape
+{
+	int r;
+	
+	public:
+		circle(int r)
+		{
+			this->r=r;
+		}
+		void area()
+		{
+			cout<<"\nArea of circle="<<(3.14*r*r);
+		}
+};
+
+class square:public shape
+{
+	int side;
+	
+	public: 
+	square(int s)
+	{
+		side=s;
+	}
+	void area()
+	{
+		cout<<"\nArea of square="<<(side*side);
+	}
+};
+
+int main()
+{
+	rectangle r(10,20);
+	r.area();
+	
+	circle c(10);
+	c.area();
+	
+	square s(20);
+	s.area();
+	return 0;
+}
+o/p-
+Area of rectangle=200
+Area of circle=314
+Area of square=400
